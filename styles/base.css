@@ -76,9 +76,9 @@
     color: var(--brand);
   }
 
-  /* teal gradient surface: hero panel, banners, call to action, login panel */
+  /* orange gradient surface: hero panel, banners, call to action, login panel */
   .brand-panel {
-    color: #eafaf6;
+    color: #fff1e6;
     background: linear-gradient(150deg, var(--hero-from), var(--hero-to));
     isolation: isolate;
   }

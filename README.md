@@ -67,7 +67,7 @@ client, and anything used by more than one module lives in `components/ui` or `l
 
 ## Design system (`styles/tokens.css`)
 
-- Look: clean teal brand colour with a mint highlight and soft animated school-themed backgrounds (drifting book, pencil, cap and atom icons, an ID card, a subject marquee). Sidebar dashboards with banners, a landing page with interactive role tabs and product previews, split login and signup. Light and dark themes, toggle in the header, choice remembered, no flash on load.
+- Look: clean orange brand colour with an amber highlight and soft animated school-themed backgrounds (drifting book, pencil, cap and atom icons, an ID card, a subject marquee). Sidebar dashboards with banners, a landing page with interactive role tabs and product previews, split login and signup. Light and dark themes, toggle in the header, choice remembered, no flash on load.
 - Font: Manrope everywhere, self-hosted via Fontsource.
 - Type scale: caption 12px, label 14px, body 16px, lead 18px, h4 17px, h3 20px, h2 24-30px, h1 28-40px, display 38-64px (fluid). Line height 1.6 body, 1.06-1.35 headings.
 - One container width (74rem), one section rhythm, one radius scale (8 / 12 / 16 / 20px), one soft shadow family, one button, one field style.

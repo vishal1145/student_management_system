@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { EduBackdrop } from "@/components/effects/EduBackdrop";
 import { Icon } from "@/components/ui/Icon";
-import { StudentMock } from "@/components/marketing/Mocks";
 import { cn } from "@/lib/cn";
 
 type AuthShellProps = { eyebrow: string; title: string; description: string; children: ReactNode; wide?: boolean };
@@ -22,10 +21,10 @@ export function AuthShell({ eyebrow, title, description, children, wide }: AuthS
       </div>
 
       <aside className="brand-panel relative hidden overflow-hidden p-10 lg:flex lg:items-center xl:p-12">
-        <EduBackdrop tone="dark" />
+        <EduBackdrop tone="dark" count={0} blobs={false} />
         <div className="auth-aside relative z-10 flex w-full max-w-md flex-col gap-8">
           <h2 className="fade-up text-h1 font-extrabold text-[inherit] [--d:0.1s]">Your school, organised in one place.</h2>
-          <div className="fade-up [--d:0.2s]"><StudentMock /></div>
+          <p className="fade-up text-body text-white/80 [--d:0.2s]">Records, results and approvals in one calm workspace, with a dashboard built for each role.</p>
           <ul className="auth-points fade-up flex flex-col gap-2.5 text-label font-medium [--d:0.3s]">
             {POINTS.map((point) => (
               <li key={point} className="flex items-center gap-2.5">

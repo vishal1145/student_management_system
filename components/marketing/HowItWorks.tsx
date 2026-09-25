@@ -11,7 +11,7 @@ const STEPS: { icon: IconName; title: string; text: string }[] = [
 export function HowItWorks() {
   return (
     <section id="how-it-works" className="section relative scroll-mt-20 overflow-clip">
-      <EduBackdrop count={6} />
+      <EduBackdrop count={0} />
       <div className="container-page relative z-10 flex flex-col gap-12">
         <div className="reveal max-w-2xl">
           <p className="eyebrow mb-3">How it works</p>

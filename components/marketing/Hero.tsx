@@ -4,21 +4,10 @@ import { LinkButton } from "@/components/ui/Button";
 import { ROUTES } from "@/lib/constants";
 import { HeroCards } from "./HeroCards";
 
-const SPARKS = [
-  { x: "8%", s: 8, dur: 13, delay: 0, dx: 30 }, { x: "22%", s: 6, dur: 16, delay: -5, dx: -20 },
-  { x: "38%", s: 10, dur: 14, delay: -9, dx: 40 }, { x: "55%", s: 6, dur: 18, delay: -3, dx: -30 },
-  { x: "70%", s: 9, dur: 15, delay: -11, dx: 25 }, { x: "86%", s: 7, dur: 17, delay: -7, dx: -35 },
-];
-
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-line">
-      <EduBackdrop />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        {SPARKS.map((sp, i) => (
-          <span key={i} className="spark" style={{ ["--x" as string]: sp.x, ["--s" as string]: `${sp.s}px`, ["--dur" as string]: `${sp.dur}s`, ["--delay" as string]: `${sp.delay}s`, ["--dx" as string]: `${sp.dx}px` }} />
-        ))}
-      </div>
+      <EduBackdrop count={0} />
       <div className="container-page relative z-10 grid items-center gap-14 py-14 md:py-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-24">
         <div className="flex flex-col items-start gap-6">
           <span className="fade-up inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-caption font-bold text-ink shadow-sm">

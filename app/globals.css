@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource-variable/manrope";
 
 /* Order matters: tokens, then base + layout, then component classes, then motion. */
 @import "../styles/tokens.css";

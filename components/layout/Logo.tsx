@@ -2,7 +2,7 @@ import Link from "next/link";
 import { APP_NAME } from "@/lib/constants";
 import { Icon } from "@/components/ui/Icon";
 
-/** Teal tile with a mint dot + wordmark. Same size and placement in every header and footer. */
+/** Orange tile with an amber dot + wordmark. Same size and placement in every header and footer. */
 export function Logo({ href = "/", onDark }: { href?: string; onDark?: boolean }) {
   return (
     <Link href={href} className="group inline-flex min-h-11 items-center gap-2.5 no-underline" aria-label={`${APP_NAME} home`}>

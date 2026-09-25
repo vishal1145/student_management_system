@@ -43,7 +43,7 @@ function Lane({ reverse, back, offset }: { reverse?: boolean; back?: boolean; of
 export function ResultsWall() {
   return (
     <section aria-label="Sample student result cards" className="relative overflow-clip border-y border-line bg-paper py-16 md:py-24">
-      <EduBackdrop count={4} />
+      <EduBackdrop count={0} />
       <div className="container-page relative z-10 mb-10">
         <div className="max-w-2xl">
           <p className="eyebrow mb-3">Results</p>

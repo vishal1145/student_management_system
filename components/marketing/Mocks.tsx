@@ -135,7 +135,7 @@ export function IdCard({ name, className, tilt = -4 }: { name: string; className
   return (
     <div
       aria-hidden="true"
-      className={`id-card w-64 overflow-hidden rounded-2xl border border-line bg-surface shadow-lg ${className ?? ""}`}
+      className={`id-card w-56 overflow-hidden rounded-2xl border border-line bg-surface shadow-lg ${className ?? ""}`}
       style={{ ["--tilt" as string]: `${tilt}deg` } as React.CSSProperties}
     >
       <div className="brand-panel flex items-center justify-between px-4 py-2.5">

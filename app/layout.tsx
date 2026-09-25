@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/manrope";
 import "./globals.css";
 import { AppFooter } from "@/components/layout/AppFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -17,8 +16,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f7fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#090c18" },
+    { media: "(prefers-color-scheme: light)", color: "#fbf7f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#120c09" },
   ],
 };
 

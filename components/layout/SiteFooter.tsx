@@ -2,13 +2,13 @@ import Link from "next/link";
 import { APP_NAME, APP_TAGLINE, ROUTES } from "@/lib/constants";
 import { Logo } from "./Logo";
 
-const LINK_CLASS = "text-label text-[#a9b0d0] no-underline transition-colors hover:text-white";
+const LINK_CLASS = "text-label text-[#cdb9ab] no-underline transition-colors hover:text-white";
 const HEAD_CLASS = "mb-1 text-caption font-bold uppercase tracking-[0.12em] text-white";
 
 /** Same structure on every page, including dashboards. Dark in both themes. */
 export function SiteFooter() {
   return (
-    <footer className="mt-auto bg-[var(--footer-bg)] text-[#a9b0d0]">
+    <footer className="mt-auto bg-[var(--footer-bg)] text-[#cdb9ab]">
       <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
         <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
           <Logo onDark />

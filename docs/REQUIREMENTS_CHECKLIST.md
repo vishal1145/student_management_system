@@ -41,7 +41,7 @@ Status: **Done** (built and tested), **N/A** (nothing in the app needs it, reaso
 
 | Point | Status | Where / how |
 | --- | --- | --- |
-| Defined colour palette for backgrounds, text, buttons, borders | Done | Named tokens (paper, surface, ink, muted, brand, success, warning, danger ...), teal brand colour plus one mint highlight, light and dark |
+| Defined colour palette for backgrounds, text, buttons, borders | Done | Named tokens (paper, surface, ink, muted, brand, success, warning, danger ...), orange brand colour plus one amber highlight, light and dark |
 | Border thickness, colour, radius follow one standard | Done | 1 px borders; radius 8 / 12 / 16 / 20 px; `--line`, `--line-strong`, `--control-border` |
 | Consistent shadows for cards, popups, elements | Done | Soft layered shadow family: sm (buttons, cards), md (hover, floating), lg (menus, dialogs) |
 | Button size, padding, font, radius, style consistent | Done | `.btn` + variants primary / secondary / danger / ghost, sizes sm 36 / md 44 / lg 52 px |

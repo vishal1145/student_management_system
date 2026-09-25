@@ -4,51 +4,51 @@
 /* ==========================================================================
    1. DESIGN TOKENS
    Change a value here and it changes everywhere.
-   Palette: teal brand with a mint highlight, deep ink text on cool off-white.
+   Palette: orange brand with an amber highlight, deep brown-black ink text on warm off-white.
    ========================================================================== */
 :root {
   color-scheme: light;
 
   /* surfaces */
-  --paper: #f4f7f6;
+  --paper: #fbf7f3;
   --surface: #ffffff;
-  --sunken: #ebf0ee;
+  --sunken: #f3ece5;
   /* text */
-  --ink: #0e1d19;
-  --muted: #485a55;
-  --faint: #5b6d67;
+  --ink: #1f1410;
+  --muted: #5a463b;
+  --faint: #6b574b;
   /* lines */
-  --line: #e0e8e5;
-  --line-strong: #cbd7d3;
-  --control-border: #7c8d88;
+  --line: #eadfd5;
+  --line-strong: #d8c8ba;
+  --control-border: #8a7565;
   /* brand */
-  --brand: #0f766e;
-  --brand-hover: #115e59;
-  --brand-soft: #d8f1eb;
+  --brand: #c2410c;
+  --brand-hover: #9a3412;
+  --brand-soft: #ffe8d6;
   --on-brand: #ffffff;
-  /* the single highlight colour (a light mint of the same hue) */
-  --mint: #8cf0d9;
-  --on-mint: #04201c;
+  /* the single highlight colour (a light amber of the same family) */
+  --mint: #fdba74;
+  --on-mint: #3a1505;
   /* status */
   --success: #166534;
   --success-soft: #dcf3e4;
-  --warning: #8a5100;
+  --warning: #7a5200;
   --warning-soft: #fdf0d2;
   --danger: #b42318;
   --danger-soft: #fde4e1;
   /* decorative */
-  --footer-bg: #07120f;
-  --hero-from: #04201c;
-  --hero-to: #0b4a43;
+  --footer-bg: #150b07;
+  --hero-from: #431407;
+  --hero-to: #b45309;
   /* elevation: soft layered shadows */
-  --elev-sm: 0 1px 2px rgb(14 29 25 / 0.06);
-  --elev-md: 0 1px 2px rgb(14 29 25 / 0.04), 0 10px 28px -8px rgb(14 29 25 / 0.12);
-  --elev-lg: 0 24px 60px -12px rgb(14 29 25 / 0.28);
-  --backdrop: rgb(9 20 17 / 0.55);
+  --elev-sm: 0 1px 2px rgb(31 20 16 / 0.06);
+  --elev-md: 0 1px 2px rgb(31 20 16 / 0.04), 0 10px 28px -8px rgb(31 20 16 / 0.12);
+  --elev-lg: 0 24px 60px -12px rgb(31 20 16 / 0.28);
+  --backdrop: rgb(24 12 6 / 0.55);
   /* layout */
   --header-h: 4rem;
   --container: 74rem;
-  --control-h: 2.75rem;
+  --control-h: 2.625rem;
   --card-pad: 1.25rem; /* inner padding of every card, header and row */
 }
 @media (min-width: 768px) { :root { --card-pad: 1.5rem; } }
@@ -56,32 +56,32 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --paper: #0a100e;
-  --surface: #111917;
-  --sunken: #18231f;
-  --ink: #eaf2ef;
-  --muted: #9db2ab;
-  --faint: #7f948d;
-  --line: #22302b;
-  --line-strong: #2f403b;
-  --control-border: #5f746d;
-  --brand: #2dd4b0;
-  --brand-hover: #5eead4;
-  --brand-soft: #123a32;
-  --on-brand: #04130e;
+  --paper: #120c09;
+  --surface: #1a120e;
+  --sunken: #251a14;
+  --ink: #f7eee7;
+  --muted: #c6ada0;
+  --faint: #a48c7e;
+  --line: #34251c;
+  --line-strong: #47342a;
+  --control-border: #8a7060;
+  --brand: #fb923c;
+  --brand-hover: #fdba74;
+  --brand-soft: #3b1d0c;
+  --on-brand: #1c0a02;
   --success: #6ee7a0;
   --success-soft: #0f2e1c;
   --warning: #fbbf24;
   --warning-soft: #3a2a08;
   --danger: #fca5a5;
   --danger-soft: #3f1512;
-  --footer-bg: #050c0a;
-  --hero-from: #03150f;
-  --hero-to: #0a3d36;
+  --footer-bg: #0d0705;
+  --hero-from: #2a0f05;
+  --hero-to: #8a3a0c;
   --elev-sm: 0 1px 2px rgb(0 0 0 / 0.4);
   --elev-md: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 28px -8px rgb(0 0 0 / 0.55);
   --elev-lg: 0 24px 60px -12px rgb(0 0 0 / 0.8);
-  --backdrop: rgb(2 6 5 / 0.72);
+  --backdrop: rgb(8 4 2 / 0.72);
 }
 
 @theme inline {
@@ -111,23 +111,23 @@
   --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
 
   /* type scale: headings, body, label, button, caption */
-  --text-caption: 0.75rem;
+  --text-caption: 0.72rem;
   --text-caption--line-height: 1.4;
-  --text-label: 0.875rem;
+  --text-label: 0.8125rem;
   --text-label--line-height: 1.45;
-  --text-body: 1rem;
+  --text-body: 0.9375rem;
   --text-body--line-height: 1.6;
-  --text-lead: 1.125rem;
+  --text-lead: 1.0625rem;
   --text-lead--line-height: 1.65;
-  --text-h4: 1.0625rem;
+  --text-h4: 0.9375rem;
   --text-h4--line-height: 1.4;
-  --text-h3: 1.25rem;
+  --text-h3: 1.125rem;
   --text-h3--line-height: 1.35;
-  --text-h2: clamp(1.5rem, 1.25rem + 1vw, 1.875rem);
+  --text-h2: clamp(1.375rem, 1.15rem + 0.9vw, 1.6875rem);
   --text-h2--line-height: 1.25;
-  --text-h1: clamp(1.75rem, 1.35rem + 1.6vw, 2.5rem);
+  --text-h1: clamp(1.5rem, 1.2rem + 1.3vw, 2.125rem);
   --text-h1--line-height: 1.15;
-  --text-display: clamp(2.375rem, 1.6rem + 3.6vw, 4rem);
+  --text-display: clamp(2rem, 1.4rem + 3vw, 3.25rem);
   --text-display--line-height: 1.06;
 
   --radius-sm: 8px;

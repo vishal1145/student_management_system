@@ -4,7 +4,7 @@ All values live in `styles/tokens.css`. Change one there and the whole app follo
 
 ## 1. Look and feel
 
-Clean and calm: soft off-white pages, deep ink text, one **teal** brand colour and a **mint** highlight. The
+Clean and calm: soft off-white pages, deep ink text, one **orange** brand colour and an **amber** highlight. The
 background carries the student-management theme without getting loud: a few outlined school icons (book, pencil,
 graduation cap, atom, calculator, ruler, award, star) drift slowly behind the hero, the login/signup panel, dashboard
 banners, the call to action and the 404 page (`components/effects/EduBackdrop.tsx`). They are low opacity, never sit
@@ -23,30 +23,30 @@ Hierarchy comes from size and weight only.
 
 | Role | Size | Line height | Weight |
 | --- | --- | --- | --- |
-| Display (landing hero) | 38-64 px, fluid | 1.06 | 800 |
-| Heading 1 | 28-40 px, fluid | 1.12 | 700-800 |
-| Heading 2 | 24-30 px, fluid | 1.25 | 700 |
-| Heading 3 | 20 px | 1.35 | 700 |
-| Heading 4 | 17 px | 1.4 | 700 |
-| Lead paragraph | 18 px | 1.65 | 400 |
-| Body | 16 px | 1.6 | 400 |
-| Label / table text | 14 px | 1.45 | 500-650 |
+| Display (landing hero) | 32-52 px, fluid | 1.06 | 800 |
+| Heading 1 | 24-34 px, fluid | 1.12 | 700-800 |
+| Heading 2 | 22-27 px, fluid | 1.25 | 700 |
+| Heading 3 | 18 px | 1.35 | 700 |
+| Heading 4 | 15 px | 1.4 | 700 |
+| Lead paragraph | 17 px | 1.65 | 400 |
+| Body | 15 px | 1.6 | 400 |
+| Label / table text | 13 px | 1.45 | 500-650 |
 | Button | 15 px (14 small, 17 large) | 1.2 | 650 |
-| Caption / hint / error | 12 px | 1.4 | 400-650 |
+| Caption / hint / error | 11.5 px | 1.4 | 400-650 |
 | Eyebrow | 12 px, uppercase, 0.12em tracking | 1.4 | 700 |
 
 ## 3. Colour
 
 | Token | Light | Dark | Use |
 | --- | --- | --- | --- |
-| `paper` | #F4F7F6 | #0A100E | page background |
-| `surface` | #FFFFFF | #111917 | cards, fields, menus |
-| `sunken` | #EBF0EE | #18231F | table header, hover rows, disabled fields |
-| `ink` | #0E1D19 | #ECF5F2 | main text |
-| `muted` | #485A55 | #A3B8B1 | secondary text |
-| `faint` | #5B6D67 | #8AA098 | placeholders, hints |
-| `brand` | #0F766E | #2DD4B0 | primary buttons, links, active menu item, banners |
-| `mint` | #8CF0D9 | #8CF0D9 | the single highlight (chips, dots, one shape per banner) |
+| `paper` | #FBF7F3 | #120C09 | page background |
+| `surface` | #FFFFFF | #1A120E | cards, fields, menus |
+| `sunken` | #F3ECE5 | #251A14 | table header, hover rows, disabled fields |
+| `ink` | #1F1410 | #F7EEE7 | main text |
+| `muted` | #5A463B | #C6ADA0 | secondary text |
+| `faint` | #6B574B | #A48C7E | placeholders, hints |
+| `brand` | #C2410C | #FB923C | primary buttons, links, active menu item, banners |
+| `amber` (token `mint`) | #FDBA74 | #FDBA74 | the single highlight (chips, dots, one shape per banner) |
 | `success` | #166534 | #6EE7A0 | success badges and toasts |
 | `warning` | #8A5100 | #FBBF24 | pending status only |
 | `danger` | #B42318 | #FCA5A5 | errors, delete |

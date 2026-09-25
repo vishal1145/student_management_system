@@ -20,7 +20,7 @@ const PIECES: Piece[] = [
 ];
 
 type EduBackdropProps = {
-  /** "dark" is for teal gradient panels (white icons), "light" for normal pages (teal icons). */
+  /** "dark" is for orange gradient panels (white icons), "light" for normal pages (orange icons). */
   tone?: "light" | "dark";
   /** Fewer icons for small areas such as dashboard banners. */
   count?: number;
@@ -38,11 +38,11 @@ export function EduBackdrop({ tone = "light", count = PIECES.length, blobs = tru
         <>
           <span
             className="blob -left-24 -top-24 h-80 w-80"
-            style={{ background: dark ? "#14b8a6" : "var(--mint)", opacity: dark ? 0.35 : 0.5, ["--bx" as string]: "60px", ["--by" as string]: "40px" } as CSSProperties}
+            style={{ background: dark ? "#fb923c" : "var(--mint)", opacity: dark ? 0.35 : 0.5, ["--bx" as string]: "60px", ["--by" as string]: "40px" } as CSSProperties}
           />
           <span
             className="blob -bottom-32 right-0 h-96 w-96"
-            style={{ background: dark ? "#0f766e" : "var(--brand)", opacity: dark ? 0.5 : 0.1, ["--bx" as string]: "-50px", ["--by" as string]: "-40px", animationDelay: "-7s" } as CSSProperties}
+            style={{ background: dark ? "#9a3412" : "var(--brand)", opacity: dark ? 0.5 : 0.1, ["--bx" as string]: "-50px", ["--by" as string]: "-40px", animationDelay: "-7s" } as CSSProperties}
           />
         </>
       )}
