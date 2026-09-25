@@ -1,0 +1,159 @@
+/* ==========================================================================
+   5. MOTION AND BACKGROUND EFFECTS
+   Everything here is themed on school life: drifting books, pencils, caps and stars,
+   soft moving colour, a scrolling subject strip and progress that fills in.
+   All of it stops for people who choose "reduce motion".
+   ========================================================================== */
+@layer components {
+  /* ---- entrances ---- */
+  .fade-up { animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0s); }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @supports (animation-timeline: view()) {
+    .reveal { animation: fade-up linear both; animation-timeline: view(); animation-range: entry 0% entry 40%; }
+  }
+  /* one-by-one entrance: each item sets --i (0,1,2...) and starts a little later as you scroll */
+  @supports (animation-timeline: view()) {
+    .reveal-item {
+      animation: item-in linear both; animation-timeline: view();
+      animation-range: entry calc(var(--i, 0) * 7%) entry calc(38% + var(--i, 0) * 7%);
+    }
+    .reveal-left { animation-name: item-in-left; animation-range: entry 0% entry 85%; }
+    .reveal-right { animation-name: item-in-right; animation-range: entry 0% entry 85%; }
+    .scroll-progress { animation: progress-grow linear both; animation-timeline: scroll(root); }
+  }
+  @keyframes item-in { from { opacity: 0; transform: translateY(36px) scale(0.96); } to { opacity: 1; transform: none; } }
+  @keyframes item-in-left { from { opacity: 0; transform: translateX(-120px) rotate(-3deg); } to { opacity: 1; transform: none; } }
+  @keyframes item-in-right { from { opacity: 0; transform: translateX(120px) rotate(3deg); } to { opacity: 1; transform: none; } }
+  @keyframes progress-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .scroll-progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 60; transform-origin: left; transform: scaleX(0);
+    background: linear-gradient(90deg, var(--brand), var(--mint)); pointer-events: none; }
+
+  .float-y { animation: float-y 6s ease-in-out infinite alternate; }
+  @keyframes float-y { to { transform: translateY(-10px); } }
+
+  /* ---- gentle continuous bob (icons, device frames) ---- */
+  .bob { animation: bob 4.5s ease-in-out var(--d, 0s) infinite; will-change: transform; }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+  /* ---- hero floaters: each card wanders its own path (position + slight tilt) ---- */
+  .drift { will-change: transform; animation-delay: var(--d, 0s); animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+  .drift-a { animation-name: drift-a; animation-duration: 7s; }
+  .drift-b { animation-name: drift-b; animation-duration: 9s; }
+  .drift-c { animation-name: drift-c; animation-duration: 8s; }
+  @keyframes drift-a { 0%, 100% { transform: translate(0, 0) rotate(-1deg); } 50% { transform: translate(-8px, -16px) rotate(1.5deg); } }
+  @keyframes drift-b { 0%, 100% { transform: translate(0, 0) rotate(1deg); } 33% { transform: translate(10px, -10px) rotate(-1deg); } 66% { transform: translate(-6px, 8px) rotate(1.5deg); } }
+  @keyframes drift-c { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(12px, -14px) rotate(-2deg); } }
+
+  /* ---- floating card: drifts up/down and tilts slightly, forever ---- */
+  .float-card { animation: float-card 6s ease-in-out var(--d, 0s) infinite; will-change: transform; }
+  @keyframes float-card { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(0.6deg); } }
+
+  /* ---- results wall: tilted lanes of cards drifting in opposite directions ---- */
+  .wall { display: flex; flex-direction: column; gap: 1.5rem; transform: rotate(-4deg) scale(1.06); margin-block: 1rem;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+  .wall-lane { overflow: hidden; padding-block: 1rem; }
+  .wall-back { opacity: 0.55; filter: blur(2.5px); transform: scale(0.88); }
+  .wall-track { display: flex; width: max-content; gap: 1.5rem; animation: wall-left 46s linear infinite; }
+  .wall-back .wall-track { animation-duration: 70s; }
+  .wall-reverse { animation-name: wall-right; }
+  .wall-lane:not(.wall-back):hover .wall-track { animation-play-state: paused; }
+  @keyframes wall-left { to { transform: translateX(-50%); } }
+  @keyframes wall-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+  /* ---- soft looping bars (results preview) ---- */
+  .bar-loop { transform-origin: bottom; animation: bar-loop 3.2s ease-in-out var(--d, 0s) infinite; will-change: transform; }
+  @keyframes bar-loop { 0%, 100% { transform: scaleY(0.82); } 50% { transform: scaleY(1); } }
+
+  /* ---- scan line that sweeps a search field ---- */
+  .scan { position: relative; overflow: hidden; }
+  .scan::after {
+    content: ""; position: absolute; top: 0; bottom: 0; width: 40%;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand) 16%, transparent), transparent);
+    animation: scan 2.8s ease-in-out infinite; pointer-events: none;
+  }
+  @keyframes scan { 0% { left: -40%; } 60%, 100% { left: 100%; } }
+
+  /* ---- floating school icons (see components/effects/EduBackdrop.tsx) ---- */
+  .edu-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+  .edu-icon {
+    position: absolute; left: var(--x); top: var(--y);
+    color: var(--edu-color, var(--brand)); opacity: var(--o, 0.22);
+    animation: edu-drift var(--dur, 18s) ease-in-out var(--delay, 0s) infinite alternate;
+    will-change: transform;
+  }
+  @keyframes edu-drift {
+    from { transform: translate3d(0, 0, 0) rotate(var(--r, -8deg)); }
+    to { transform: translate3d(var(--dx, 18px), var(--dy, -26px), 0) rotate(calc(var(--r, -8deg) + 16deg)); }
+  }
+
+  /* ---- soft moving colour (two blobs, very low contrast) ---- */
+  .blob {
+    position: absolute; border-radius: 50%; filter: blur(64px); pointer-events: none; z-index: 0;
+    animation: blob-move 20s ease-in-out infinite alternate; will-change: transform;
+  }
+  @keyframes blob-move { to { transform: translate3d(var(--bx, 40px), var(--by, 30px), 0) scale(1.15); } }
+
+  /* ---- scrolling subject strip ---- */
+  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-track { display: flex; width: max-content; gap: 2.5rem; animation: marquee 38s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  /* ---- progress: bars, columns and rings fill in ---- */
+  .bar-grow { transform-origin: left; animation: bar-grow 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0.2s); }
+  @keyframes bar-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .bar-rise { transform-origin: bottom; animation: bar-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0.2s); }
+  @keyframes bar-rise { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  .ring-draw { animation: ring-draw 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both 0.3s; }
+  @keyframes ring-draw { from { stroke-dasharray: 0 100; } }
+
+  /* ---- rotating word in the hero ---- */
+  .word-rotator { display: grid; overflow: hidden; height: 1.2em; }
+  .word-rotator > span { grid-area: 1 / 1; animation: word-swap 9s infinite, shimmer 5s ease-in-out infinite; transform: translateY(110%); }
+  .word-rotator > span:nth-child(1) { animation-delay: -0.8s; }
+  .word-rotator > span:nth-child(2) { animation-delay: 2.2s; }
+  .word-rotator > span:nth-child(3) { animation-delay: 5.2s; }
+  @keyframes word-swap {
+    0% { transform: translateY(110%); }
+    6%, 30% { transform: translateY(0); }
+    36%, 100% { transform: translateY(-110%); }
+  }
+
+  /* ---- hero extras: spinning dashed ring, rising sparks, shimmering word, button shine ---- */
+  .ring-spin { animation: ring-spin 40s linear infinite; }
+  @keyframes ring-spin { to { transform: rotate(360deg); } }
+  .spark { position: absolute; bottom: -12px; left: var(--x); width: var(--s, 8px); height: var(--s, 8px); border-radius: 50%;
+    background: var(--brand); opacity: 0; animation: spark-rise var(--dur, 12s) ease-in var(--delay, 0s) infinite; }
+  @keyframes spark-rise { 0% { transform: translateY(0) scale(0.6); opacity: 0; } 15% { opacity: 0.35; } 100% { transform: translateY(-620px) translateX(var(--dx, 30px)) scale(1.2); opacity: 0; } }
+  .word-rotator > span { background: linear-gradient(100deg, var(--brand) 20%, #2dd4b0 45%, var(--brand) 70%); background-size: 220% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  @keyframes shimmer { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0 0; } }
+  .btn-shine { position: relative; overflow: hidden; }
+  .btn-shine::after { content: ""; position: absolute; inset: 0 auto 0 -60%; width: 40%; transform: skewX(-20deg);
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.35), transparent); animation: shine 3.6s ease-in-out 1.2s infinite; }
+  @keyframes shine { 0% { left: -60%; } 40%, 100% { left: 140%; } }
+  .underline-draw { background: linear-gradient(var(--mint), var(--mint)) 0 92% / 0 0.28em no-repeat; animation: underline-draw 1.2s cubic-bezier(0.2,0.7,0.2,1) 0.6s forwards; }
+  @keyframes underline-draw { to { background-size: 100% 0.28em; } }
+
+  /* ---- dashed path between steps: marching dashes ---- */
+  .step-path { height: 0; border-top: 2px dashed color-mix(in srgb, var(--brand) 45%, transparent); z-index: 0; animation: path-march 1.2s linear infinite; background: none; }
+  @keyframes path-march { to { background-position: 0 0; border-top-color: color-mix(in srgb, var(--brand) 25%, transparent); } }
+
+  /* ---- ID card: gentle tilt that straightens on hover ---- */
+  .id-card { transform: rotate(var(--tilt, -4deg)); transition: transform 0.35s ease; }
+  .id-card:hover { transform: rotate(0deg) translateY(-4px); }
+
+  /* live "pulse" dot */
+  .pulse-dot { position: relative; }
+  .pulse-dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: inherit; animation: pulse-ring 2s ease-out infinite; }
+  @keyframes pulse-ring { from { transform: scale(1); opacity: 0.7; } to { transform: scale(2.6); opacity: 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .word-rotator > span { animation: none; transform: none; }
+    .word-rotator > span:not(:first-child) { display: none; }
+    .reveal-item, .scroll-progress { animation: none !important; opacity: 1; transform: none; }
+    .float-card, .drift, .wall-track, .marquee-track, .bob, .bar-loop, .ring-spin, .spark, .shimmer-text, .btn-shine::after { animation: none; }
+    .shimmer-text { color: var(--brand); background: none; }
+    .scan::after { display: none; }
+  }
+}

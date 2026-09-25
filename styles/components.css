@@ -1,0 +1,183 @@
+/* ==========================================================================
+   4. COMPONENT STYLES  (React components only pick class names)
+   ========================================================================== */
+@layer components {
+  /* ---- cards ---- */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--elev-sm);
+    padding: var(--card-pad);
+  }
+  .card.card-flush { padding: 0; overflow: hidden; }
+  .card-pad { padding: var(--card-pad); }
+  .card-row { padding: 1rem var(--card-pad); }
+  .card-interactive { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .card-interactive:hover { transform: translateY(-3px); box-shadow: var(--elev-md); border-color: var(--line-strong); }
+
+  /* ---- buttons ---- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    min-height: var(--control-h);
+    padding: 0.5rem 1.125rem;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem; font-weight: 650; line-height: 1.2;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer; text-decoration: none; white-space: nowrap;
+    transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease, border-color .15s ease;
+  }
+  .btn:hover:not(:disabled):not([aria-disabled="true"]) { transform: translateY(-1px); box-shadow: var(--elev-md); }
+  .btn:active:not(:disabled):not([aria-disabled="true"]) { transform: translateY(0); box-shadow: none; }
+  .btn-sm { min-height: 2.25rem; padding: 0.25rem 0.75rem; font-size: var(--text-label); border-radius: 10px; }
+  .btn-lg { min-height: 3.25rem; padding: 0.75rem 1.5rem; font-size: 1.0625rem; }
+  .btn-block { width: 100%; }
+  .btn-primary { background: var(--brand); color: var(--on-brand); box-shadow: var(--elev-sm); }
+  .btn-primary:hover:not(:disabled):not([aria-disabled="true"]) { background: var(--brand-hover); }
+  .btn-mint { background: var(--mint); color: var(--on-mint); box-shadow: var(--elev-sm); }
+  .btn-mint:hover:not(:disabled):not([aria-disabled="true"]) { filter: brightness(0.95); }
+  .btn-secondary { background: var(--surface); color: var(--ink); border-color: var(--line-strong); box-shadow: var(--elev-sm); }
+  .btn-secondary:hover:not(:disabled):not([aria-disabled="true"]) { background: var(--sunken); }
+  .btn-danger { background: var(--danger); color: #ffffff; box-shadow: var(--elev-sm); }
+  [data-theme="dark"] .btn-danger { color: #2a0b08; }
+  .btn-danger:hover:not(:disabled) { filter: brightness(0.94); }
+  .btn-ghost { background: transparent; color: var(--ink); }
+  .btn-ghost:hover:not(:disabled) { background: var(--sunken); transform: none; box-shadow: none; }
+  .btn-icon { padding: 0; width: var(--control-h); }
+  .btn-icon.btn-sm { width: 2.25rem; }
+  .btn:disabled, .btn[aria-disabled="true"] {
+    background: var(--sunken); color: var(--faint);
+    border-color: var(--line); box-shadow: none; cursor: not-allowed;
+  }
+
+  /* ---- form controls (input / select / textarea share one look) ---- */
+  .field-control {
+    width: 100%; min-height: var(--control-h);
+    padding: 0.5rem 0.875rem;
+    font: inherit; font-size: 1rem; color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--control-border);
+    border-radius: var(--radius-md);
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  textarea.field-control { min-height: 6rem; resize: vertical; }
+  select.field-control {
+    appearance: none; padding-right: 2.5rem; cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2378908a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 0.875rem center;
+  }
+  .field-control::placeholder { color: var(--faint); }
+  .field-control:hover:not(:disabled) { border-color: var(--ink); }
+  .field-control:focus-visible {
+    outline: none; border-color: var(--brand);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 22%, transparent);
+  }
+  .field-control[aria-invalid="true"] { border-color: var(--danger); }
+  .field-control[aria-invalid="true"]:focus-visible { box-shadow: 0 0 0 4px color-mix(in srgb, var(--danger) 22%, transparent); }
+  .field-control:disabled {
+    background: var(--sunken); color: var(--faint);
+    border-color: var(--line); cursor: not-allowed;
+  }
+
+  /* ---- badges (role / status pills) ---- */
+  .badge {
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    padding: 0.125rem 0.625rem;
+    font-size: var(--text-caption); font-weight: 650; line-height: 1.6;
+    text-transform: capitalize; white-space: nowrap;
+    border-radius: 999px;
+  }
+  .badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .badge-neutral { color: var(--muted); background: var(--sunken); }
+  .badge-brand { color: var(--brand); background: var(--brand-soft); }
+  .badge-success { color: var(--success); background: var(--success-soft); }
+  .badge-warning { color: var(--warning); background: var(--warning-soft); }
+  .badge-danger { color: var(--danger); background: var(--danger-soft); }
+
+  /* ---- skeleton loader ---- */
+  .skeleton {
+    background: linear-gradient(90deg, var(--sunken) 25%, var(--line) 50%, var(--sunken) 75%);
+    background-size: 200% 100%;
+    border-radius: var(--radius-sm);
+    animation: shimmer 1.4s linear infinite;
+  }
+  @keyframes shimmer { to { background-position: -200% 0; } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spin { animation: spin .8s linear infinite; }
+
+  /* ---- dialog ---- */
+  dialog.modal {
+    width: min(32rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem);
+    margin: auto; padding: 0; overflow: auto;
+    color: var(--ink); background: var(--surface);
+    border: 1px solid var(--line-strong); border-radius: var(--radius-xl);
+    box-shadow: var(--elev-lg);
+  }
+  dialog.modal-wide { width: min(44rem, calc(100vw - 2rem)); }
+  dialog.modal::backdrop { background: var(--backdrop); backdrop-filter: blur(2px); }
+  @media (max-width: 639px) {
+    dialog.modal {
+      width: 100vw; max-width: 100vw; margin: auto 0 0;
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      max-height: 92dvh;
+    }
+  }
+
+  /* ---- responsive data table: real table on md+, stacked cards below ---- */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    text-align: left; padding: 0.75rem 1rem;
+    font-size: var(--text-caption); font-weight: 650;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+    background: var(--sunken);
+    border-bottom: 1px solid var(--line);
+  }
+  .data-table td { padding: 0.875rem 1rem; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  .data-table tr > :first-child { padding-left: var(--card-pad); }
+  .data-table tr > :last-child { padding-right: var(--card-pad); }
+  .data-table tbody tr { transition: background-color .12s ease; }
+  .data-table tbody tr:hover { background: color-mix(in srgb, var(--sunken) 60%, transparent); }
+  .data-table tbody tr:last-child td { border-bottom: 0; }
+  @media (max-width: 767px) {
+    .data-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .data-table tr { display: block; padding: 1rem var(--card-pad); border-bottom: 1px solid var(--line); }
+    .data-table tr > :first-child, .data-table tr > :last-child { padding-left: 0; padding-right: 0; }
+    .data-table td {
+      display: grid; grid-template-columns: 7rem 1fr; gap: 0.75rem;
+      padding: 0.375rem 0.25rem; border: 0; align-items: start;
+    }
+    .data-table td::before {
+      content: attr(data-label); font-size: var(--text-caption); font-weight: 650;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-top: 0.15rem;
+    }
+    .data-table td > .badge { justify-self: start; }
+    .data-table td[data-label=""]::before { content: none; }
+    .data-table td[data-label=""] { display: block; }
+  }
+}
+
+/* Lock page scroll while a dialog is open. */
+body:has(dialog[open]) { overflow: hidden; }
+
+@layer components {
+  /* ---- login / signup on short desktop windows: tighten everything so it fits without scrolling ---- */
+  @media (min-width: 1024px) and (max-height: 780px) {
+    .auth-left { padding-block: 0.75rem; }
+    .auth-title { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .auth-eyebrow { margin-bottom: 0.25rem; }
+    .auth-desc { margin-block: 0.5rem 1rem; font-size: var(--text-label); }
+    .auth-left form { gap: 0.75rem; }
+    .auth-left .field-control { min-height: 2.5rem; }
+    .auth-left [id$="-hint"] { display: none; }
+    .auth-left fieldset label { min-height: 2.75rem !important; padding-block: 0.5rem; }
+    .auth-left fieldset label > span.text-caption { display: none; }
+    .auth-aside { gap: 1rem; }
+    .auth-aside h2 { font-size: 1.75rem; }
+  }
+  @media (min-width: 1024px) and (max-height: 640px) {
+    .auth-eyebrow, .auth-desc, .auth-points, .auth-aside h2 { display: none !important; }
+    .auth-left form { gap: 0.5rem; }
+    .auth-left .btn-lg { min-height: 2.5rem; }
+  }
+}

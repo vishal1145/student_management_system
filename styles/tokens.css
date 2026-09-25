@@ -1,0 +1,141 @@
+/* Dark mode is driven by <html data-theme="dark"> (see components/layout/theme.ts). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   Change a value here and it changes everywhere.
+   Palette: teal brand with a mint highlight, deep ink text on cool off-white.
+   ========================================================================== */
+:root {
+  color-scheme: light;
+
+  /* surfaces */
+  --paper: #f4f7f6;
+  --surface: #ffffff;
+  --sunken: #ebf0ee;
+  /* text */
+  --ink: #0e1d19;
+  --muted: #485a55;
+  --faint: #5b6d67;
+  /* lines */
+  --line: #e0e8e5;
+  --line-strong: #cbd7d3;
+  --control-border: #7c8d88;
+  /* brand */
+  --brand: #0f766e;
+  --brand-hover: #115e59;
+  --brand-soft: #d8f1eb;
+  --on-brand: #ffffff;
+  /* the single highlight colour (a light mint of the same hue) */
+  --mint: #8cf0d9;
+  --on-mint: #04201c;
+  /* status */
+  --success: #166534;
+  --success-soft: #dcf3e4;
+  --warning: #8a5100;
+  --warning-soft: #fdf0d2;
+  --danger: #b42318;
+  --danger-soft: #fde4e1;
+  /* decorative */
+  --footer-bg: #07120f;
+  --hero-from: #04201c;
+  --hero-to: #0b4a43;
+  /* elevation: soft layered shadows */
+  --elev-sm: 0 1px 2px rgb(14 29 25 / 0.06);
+  --elev-md: 0 1px 2px rgb(14 29 25 / 0.04), 0 10px 28px -8px rgb(14 29 25 / 0.12);
+  --elev-lg: 0 24px 60px -12px rgb(14 29 25 / 0.28);
+  --backdrop: rgb(9 20 17 / 0.55);
+  /* layout */
+  --header-h: 4rem;
+  --container: 74rem;
+  --control-h: 2.75rem;
+  --card-pad: 1.25rem; /* inner padding of every card, header and row */
+}
+@media (min-width: 768px) { :root { --card-pad: 1.5rem; } }
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --paper: #0a100e;
+  --surface: #111917;
+  --sunken: #18231f;
+  --ink: #eaf2ef;
+  --muted: #9db2ab;
+  --faint: #7f948d;
+  --line: #22302b;
+  --line-strong: #2f403b;
+  --control-border: #5f746d;
+  --brand: #2dd4b0;
+  --brand-hover: #5eead4;
+  --brand-soft: #123a32;
+  --on-brand: #04130e;
+  --success: #6ee7a0;
+  --success-soft: #0f2e1c;
+  --warning: #fbbf24;
+  --warning-soft: #3a2a08;
+  --danger: #fca5a5;
+  --danger-soft: #3f1512;
+  --footer-bg: #050c0a;
+  --hero-from: #03150f;
+  --hero-to: #0a3d36;
+  --elev-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --elev-md: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 28px -8px rgb(0 0 0 / 0.55);
+  --elev-lg: 0 24px 60px -12px rgb(0 0 0 / 0.8);
+  --backdrop: rgb(2 6 5 / 0.72);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-outline: var(--line-strong);
+  --color-control: var(--control-border);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-mint: var(--mint);
+  --color-on-mint: var(--on-mint);
+  --color-brand-soft: var(--brand-soft);
+  --color-on-brand: var(--on-brand);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+
+  /* one font family everywhere */
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* type scale: headings, body, label, button, caption */
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+  --text-label: 0.875rem;
+  --text-label--line-height: 1.45;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.65;
+  --text-h4: 1.0625rem;
+  --text-h4--line-height: 1.4;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.35;
+  --text-h2: clamp(1.5rem, 1.25rem + 1vw, 1.875rem);
+  --text-h2--line-height: 1.25;
+  --text-h1: clamp(1.75rem, 1.35rem + 1.6vw, 2.5rem);
+  --text-h1--line-height: 1.15;
+  --text-display: clamp(2.375rem, 1.6rem + 3.6vw, 4rem);
+  --text-display--line-height: 1.06;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  --shadow-sm: var(--elev-sm);
+  --shadow-md: var(--elev-md);
+  --shadow-lg: var(--elev-lg);
+}
